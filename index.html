@@ -1,5 +1,286 @@
-<a href="https://youtube.com/shorts/_6HzLIJPH2A?si=v-5vzV5L-pb8FrBU" 
-   class="button" 
-   style="font-size: 20px; padding: 15px 30px; display: inline-block;">
-   A quick short of learning how to code
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Cheatsheets</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 60px;
+            background: #f4f4f4;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: #0078ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .button:hover {
+            background: #005fcc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome!</h1>
+
+<p>
+    Here, you can get <strong>Coding Cheatsheets</strong> for <strong>FREE!</strong>
+</p>
+
+<a href="#" class="button" onclick="downloadPython()">Python Cheat Sheet</a>
+
+<a href="#" class="button" onclick="downloadLua()">Lua Cheat Sheet</a>
+
+<script>
+const pythonCheatSheet = `Python Cheat Sheet
+
+Print
+print('Hello')
+
+Variables
+name='Bob'
+age=13
+
+Input
+name=input('Name: ')
+
+If
+if x>5:
+    print('Big')
+else:
+    print('Small')
+
+For Loop
+for i in range(5):
+    print(i)
+
+While Loop
+count=0
+while count<5:
+    count+=1
+
+Function
+def greet(name):
+    return 'Hi '+name
+
+List
+nums=[1,2,3]
+nums.append(4)
+
+Dictionary
+player={'name':'Bob','coins':10}
+print(player['coins'])
+
+Class
+class Dog:
+    def __init__(self,name):
+        self.name=name
+
+Import
+import math
+print(math.sqrt(16))
+
+Comments
+# This is a comment`;
+
+const luaCheatSheet = `Lua Builder Cheat Sheet
+
+1. Variables (store data)
+
+local name = "John"
+local coins = 50
+
+Change values:
+
+coins = coins + 10
+
+--------------------------------------------------
+
+2. Print text
+
+print("Hello")
+print("Coins: " .. coins)
+
+Use ".." to join text.
+
+--------------------------------------------------
+
+3. Maths symbols
+
+Division: ÷
+Addition: +
+Subtraction: -
+Square Root: √
+Cube Root: ∛
+
+--------------------------------------------------
+
+4. Ask the player a question
+
+print("What is your name?")
+
+local answer = io.read()
+
+print("Hello " .. answer)
+
+Numbers:
+
+local amount = tonumber(io.read())
+
+--------------------------------------------------
+
+5. If Statements
+
+if answer == "1" then
+    print("Correct!")
+else
+    print("No")
+end
+
+Question Example:
+
+print("What is 5 + 5?")
+
+local answer = io.read()
+
+if answer == "10" then
+    print("Correct!")
+else
+    print("Wrong answer")
+end
+
+--------------------------------------------------
+
+6. Functions
+
+function greet(name)
+    print("Hello " .. name)
+end
+
+greet("John")
+
+Function with return:
+
+function takeDamage(health)
+    return health - 20
+end
+
+local health = 100
+
+health = takeDamage(health)
+
+--------------------------------------------------
+
+7. Tables
+
+local player = {
+    name = "Bob",
+    coins = 50
+}
+
+Get values:
+
+print(player.name)
+
+Change values:
+
+player.coins = 100
+
+--------------------------------------------------
+
+8. Nested Tables
+
+local player = {
+    stats = {
+        health = 100,
+        level = 1
+    }
+}
+
+print(player.stats.health)
+
+--------------------------------------------------
+
+9. For Loops
+
+for i = 1, 5 do
+    print("Hello")
+end
+
+With numbers:
+
+for i = 1, 5 do
+    print(i)
+end
+
+--------------------------------------------------
+
+10. While Loops
+
+local running = true
+
+while running do
+    print("Running")
+
+    running = false
+end
+
+Exit example:
+
+while true do
+    local answer = io.read()
+
+    if answer == "exit" then
+        break
+    end
+end
+
+--------------------------------------------------
+
+11. Wait (Game Lua)
+
+wait(1)
+
+print("Done")
+
+--------------------------------------------------
+
+Mini Debug Checklist
+
+- Missing end?
+- Missing commas in tables?
+- Using == in if?
+- Used ".." to join text?
+- Did you call your function?
+- Did you save returned values?`;
+
+function download(filename, text) {
+    const element = document.createElement("a");
+    const file = new Blob([text], {type: "text/plain"});
+    element.href = URL.createObjectURL(file);
+    element.download = filename;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+}
+
+function downloadPython() {
+    download("Python_CheatSheet.txt", pythonCheatSheet);
+}
+
+function downloadLua() {
+    download("Lua_CheatSheet.txt", luaCheatSheet);
+}
+</script>
+
+</body>
+</html>
