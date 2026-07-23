@@ -37,8 +37,8 @@
 </p>
 
 <a href="#" class="button" onclick="downloadPython()">Python Cheat Sheet</a>
-
 <a href="#" class="button" onclick="downloadLua()">Lua Cheat Sheet</a>
+<a href="#" class="button" onclick="downloadCSS()">CSS Cheat Sheet</a>
 
 <script>
 const pythonCheatSheet = `Python Cheat Sheet
@@ -263,6 +263,152 @@ Mini Debug Checklist
 - Did you call your function?
 - Did you save returned values?`;
 
+const cssCheatSheet = `# CSS Cheat Sheet (Lessons 1--27)
+
+## 1. Basic Selectors
+
+h1 {}
+p {}
+
+Styles every matching element.
+
+## 2. Classes
+
+.box {}
+<div class="box"></div>
+
+Use \`.\` for many elements.
+
+## 3. IDs
+
+#title {}
+<h1 id="title"></h1>
+
+Use \`#\` for one unique element.
+
+## 4. Colors
+
+color: red;
+background-color: skyblue;
+background-color: #87CEEB;
+
+## 5. Fonts
+
+font-family: Arial;
+font-size: 24px;
+font-weight: bold; /* or 100-900 */
+
+## 6. Text
+
+text-align: center;
+text-decoration: underline;
+text-decoration: line-through;
+text-decoration: none;
+
+## 7. Borders
+
+border: 2px solid black;
+
+## 8. Padding & Margin
+
+padding: 20px;
+margin: 15px;
+
+## 9. Width & Height
+
+width: 200px;
+height: 100px;
+
+## 10. Border Radius
+
+border-radius: 10px;
+border-radius: 25px 0 25px 0;
+border-radius: 50%;
+
+## 11. Hover
+
+button:hover {
+  background: green;
+}
+
+## 12. Cursor
+
+cursor: pointer;
+cursor: text;
+cursor: not-allowed;
+
+## 13. Display
+
+display: block;
+display: inline;
+display: inline-block;
+display: flex;
+
+## 14. Flexbox
+
+display: flex;
+flex-direction: row;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+## 15. Position
+
+position: relative;
+left: 20px;
+top: 10px;
+
+## 16. Overflow
+
+overflow: visible;
+overflow: hidden;
+overflow: auto;
+overflow: scroll;
+
+## 17. Opacity
+
+opacity: 1;
+opacity: 0.6;
+opacity: 0;
+
+## 18. Transition
+
+transition: background-color 0.5s;
+transition: transform 0.3s;
+
+## 19. Transform
+
+transform: scale(1.2);
+transform: scale(0.5);
+
+## 20. Box Shadow
+
+box-shadow: 5px 5px 10px gray;
+box-shadow: 0 0 20px gray;
+
+## 21. z-index
+
+.box {
+  position: relative;
+  z-index: 2;
+}
+
+Higher \`z-index\` appears in front.
+
+## Common Color Names
+
+red, blue, green, purple, orange, black, white, gray, lightblue,
+lightgreen, lightyellow, lightpink, skyblue, lightcoral
+
+## Quick Reminders
+
+-   \`.\` = Class
+-   \`#\` = ID
+-   End CSS properties with \`;\`
+-   Put visible HTML inside <body>...</body>
+-   Reuse classes instead of repeating CSS (DRY)`;
+
 function download(filename, text) {
     const element = document.createElement("a");
     const file = new Blob([text], {type: "text/plain"});
@@ -279,6 +425,10 @@ function downloadPython() {
 
 function downloadLua() {
     download("Lua_CheatSheet.txt", luaCheatSheet);
+}
+
+function downloadCSS() {
+    download("CSS_CheatSheet.txt", cssCheatSheet);
 }
 </script>
 
